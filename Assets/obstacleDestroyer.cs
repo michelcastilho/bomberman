@@ -26,6 +26,8 @@ public class obstacleDestroyer : MonoBehaviour
     [SerializeField]
     public Tile wallTile;
     [SerializeField]
+    public Tile wallTiles;
+    [SerializeField]
     public Tile destructibleTile;
 
     [SerializeField]
@@ -59,7 +61,7 @@ public class obstacleDestroyer : MonoBehaviour
     bool ExplodeCell (Vector3Int cell){
         Tile tile = tilemapWall.GetTile<Tile>(cell);
 
-        if(tile == wallTile){
+        if(tile == wallTile || tile == wallTiles){
             return false;
         }
         tile = tilemapObstacle.GetTile<Tile>(cell);
